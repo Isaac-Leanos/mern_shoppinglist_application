@@ -1,0 +1,30 @@
+{
+  "name": "mern_shoppinglist_app",
+  "version": "1.0.0",
+  "description": "shopping list built with MERN stack",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsaacLeanos/mern_shoppingList_app.git"
+  },
+  "author": "Isaac Leanos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsaacLeanos/mern_shoppingList_app/issues"
+  },
+  "homepage": "https://github.com/IsaacLeanos/mern_shoppingList_app#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bytes": "^3.1.0",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.17"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}

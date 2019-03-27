@@ -1,2 +1,4 @@
-# mern_shoppingList_app
-Mongo Express React Node
+MONGO DB
+EXPRESS
+REACT
+NODE JS
