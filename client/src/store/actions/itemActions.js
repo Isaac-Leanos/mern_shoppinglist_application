@@ -21,3 +21,9 @@ export const deleteItem = id => {
         data: id,
     }
 };
+// export const deleteItem = id => {
+//     return {
+//         type: 'DELETE_ITEM',
+//         data: id,
+//     }
+// };
