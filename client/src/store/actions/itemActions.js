@@ -8,6 +8,8 @@ export const getItems = ()=>{
     }
 }
 
+var ok=1;
+
 export const addItem = (item) => {
     return {
         type: 'ADD_ITEM',
