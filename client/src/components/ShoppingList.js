@@ -23,9 +23,11 @@ import { getItems, deleteItem } from '../store/actions/itemActions';
 
     render() {
       const {items} = this.props.itemReducer;
+      const {loading} = this.props.itemReducer;
       return (
         <div>
             <Container>
+                <div>{loading ? <p>Loading..</p> : false}</div>
                 <ListGroup>
                     <TransitionGroup className="shopping-list">
                         {items.map(({id, name}) => (

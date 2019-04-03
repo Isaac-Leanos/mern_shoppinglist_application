@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
+
 const items = require("./routes/api/items");
 
 
@@ -18,6 +19,7 @@ mongoose
     .connect(db)
     .then(()=> console.log("mongo connected") )
     .catch(e => console.log(e) );
+
 
 //use routes
 app.use("/api/items", items);
