@@ -18,13 +18,10 @@ const itemReducer = (state=initialState, action)=>{
         }
 
         case 'ADD_ITEM':
-        return {...state, items:[...state.items, action.data]}
+        return {...state, items:[...state.items, action.data] }
 
         case 'DELETE_ITEM':
-        return {
-            ...state,
-            items: state.items.filter(item => item.id !== action.data) 
-        }
+        return {...state, items: state.items.filter(item => item._id !== action.data) }
 
         case 'SET_ITEMS_LOADING':
         return {

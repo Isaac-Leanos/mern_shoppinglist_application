@@ -16,7 +16,7 @@ export const getItems = () => {
             }
         }
 
-export const addItem = (item) => {
+export const addItem = (item)=>{
     return (dispatch) => {
         axios
             .post('/api/items', item)
@@ -26,7 +26,7 @@ export const addItem = (item) => {
     }             
 }
 
-export const deleteItem = id => {
+export const deleteItem = (id)=>{
     return (dispatch) => {
         axios 
             .delete(`/api/items/${id}`)
@@ -34,10 +34,6 @@ export const deleteItem = id => {
             .then(res => {
                 dispatch({type: 'DELETE_ITEM', data: id});
             });
-    }
-    return {
-        type: 'DELETE_ITEM',
-        data: id,
     }
 };
 

@@ -8,16 +8,12 @@ import { getItems, deleteItem } from '../store/actions/itemActions';
 
   
   class ShoppingList extends React.Component {
-
-
     componentDidMount(){
-        this.props.getItems();
+      this.props.getItems();
     }
 
-    deleteAnItem = id => {
-        return e => {
-            this.props.deleteItem(id);
-        }
+    deleteAnItem = (id)=>{
+      this.props.deleteItem(id);
     }
 
     render() {
@@ -31,7 +27,7 @@ import { getItems, deleteItem } from '../store/actions/itemActions';
                         {items.map(({_id, name}) => (
                             <ListGroupItem key={_id}>
                                 <Button className="remove-btn" color="danger" size="sm" 
-                                onClick={this.deleteAnItem(_id) }> &times;
+                                onClick={this.deleteAnItem.bind(null, _id) }> &times;
                                 </Button>
                                 {name}
                             </ListGroupItem>
