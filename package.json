@@ -24,7 +24,7 @@
     "bytes": "^3.1.0",
     "concurrently": "^4.1.0",
     "express": "^4.16.4",
-    "mongoose": "^5.4.17"
+    "mongoose": "^5.4.21"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"

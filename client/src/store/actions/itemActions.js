@@ -8,15 +8,38 @@ import axios from "axios";
 export const getItems = () => {
     return (dispatch) => {
         dispatch(setItemsLoading() );
-        setTimeout(function(){
             axios
                 .get('/api/items')
                 .then(res => {
-                       dispatch({type: 'GET_ITEMS', data: res.data});
-                    });
-        }, 3000);
-    }
+                    dispatch({type: 'GET_ITEMS', data: res.data});
+                });
+            }
+        }
+
+export const addItem = (item) => {
+    return (dispatch) => {
+        axios
+            .post('/api/items', item)
+            .then(res => {
+                dispatch({type: 'ADD_ITEM', data: res.data});
+            });
+    }             
 }
+
+export const deleteItem = id => {
+    return (dispatch) => {
+        axios 
+            .delete(`/api/items/${id}`)
+            // success response
+            .then(res => {
+                dispatch({type: 'DELETE_ITEM', data: id});
+            });
+    }
+    return {
+        type: 'DELETE_ITEM',
+        data: id,
+    }
+};
 
 // export const attemptSignup=(data)=>{
 //     return(dispatch)=>{
@@ -29,28 +52,6 @@ export const getItems = () => {
 // const apiSignup=(info)=>axios.post('/api/users',{info}).then((res)=>{return res.data.user})
 // user--{email:mail@mail.com,confirmed: ,token:'ri8hn5j3fg0ekfjwfoj/89'}--authJson
 
-
-
-export const addItem = (item) => {             
-    return {
-        type: 'ADD_ITEM',
-        data: item
-    }
-}
-
-export const deleteItem = id => {
-    return (dispatch) => {
-        axios 
-            .get('/api/items', id)
-            .then(res => {
-                dispatch();
-            });
-    }
-    return {
-        type: 'DELETE_ITEM',
-        data: id,
-    }
-};
 
 export const setItemsLoading = () => {
     return {

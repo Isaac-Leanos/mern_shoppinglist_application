@@ -2,7 +2,6 @@ import React from 'react';
 import {
     Container, ListGroup, ListGroupItem, Button
   } from 'reactstrap';
-import {TransitionGroup, CSSTransition} from "react-transition-group";
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../store/actions/itemActions';
 
@@ -29,18 +28,14 @@ import { getItems, deleteItem } from '../store/actions/itemActions';
             <Container>
                 <div>{loading ? <p>Loading..</p> : false}</div>
                 <ListGroup>
-                    <TransitionGroup className="shopping-list">
-                        {items.map(({id, name}) => (
-                            <CSSTransition key={id} timeout={500} classNames="fade">
-                                <ListGroupItem>
-                                    <Button className="remove-btn" color="danger" size="sm" 
-                                    onClick={this.deleteAnItem(id) }> &times;
-                                    </Button>
-                                    {name}
-                                </ListGroupItem>
-                            </CSSTransition>
+                        {items.map(({_id, name}) => (
+                            <ListGroupItem key={_id}>
+                                <Button className="remove-btn" color="danger" size="sm" 
+                                onClick={this.deleteAnItem(_id) }> &times;
+                                </Button>
+                                {name}
+                            </ListGroupItem>
                         ))}
-                    </TransitionGroup>
                 </ListGroup>
             </Container>
         </div>
@@ -48,7 +43,7 @@ import { getItems, deleteItem } from '../store/actions/itemActions';
     }
   }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     itemReducer: state.itemReducer,
 })
   
