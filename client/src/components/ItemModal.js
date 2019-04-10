@@ -38,7 +38,6 @@ import { addItem } from '../store/actions/itemActions';
     }
 
     render() {
-      const {items} = this.props.itemReducer;
       return (
         <div>
 

@@ -15,6 +15,7 @@ import { getItems, deleteItem } from '../store/actions/itemActions';
     deleteAnItem = (id)=>{
       this.props.deleteItem(id);
     }
+    
 
     render() {
       const {items} = this.props.itemReducer;
@@ -22,17 +23,18 @@ import { getItems, deleteItem } from '../store/actions/itemActions';
       return (
         <div>
             <Container>
-                <div>{loading ? <p>Loading..</p> : false}</div>
-                <ListGroup>
-                        {items.map(({_id, name}) => (
-                            <ListGroupItem key={_id}>
-                                <Button className="remove-btn" color="danger" size="sm" 
-                                onClick={this.deleteAnItem.bind(null, _id) }> &times;
-                                </Button>
-                                {name}
-                            </ListGroupItem>
-                        ))}
-                </ListGroup>
+                <div>{loading ? <p>Loading..</p> : 
+                  <ListGroup>
+                          {items.map(({_id, name}) => (
+                              <ListGroupItem key={_id}>
+                                  <Button className="remove-btn" color="danger" size="sm" 
+                                  onClick={this.deleteAnItem.bind(null, _id) }> &times;
+                                  </Button>
+                                  {name}
+                              </ListGroupItem>
+                          ))}
+                  </ListGroup>
+                }</div>
             </Container>
         </div>
       )
